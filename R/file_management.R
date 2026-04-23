@@ -44,7 +44,7 @@ UPLOAD_TO_DEPOSITION <- function(filepath,  name, id, token, instance, language 
 
   deposition  = GET_DEPOSITION(id, token, instance)
   bucket_link = deposition$links$bucket
-  cat("\n", MSSG(language)$uploading_file,
+  cat("      ", MSSG(language)$uploading_file,
       paste0("'",name,"'"),
       MSSG(language)$to,
       deposition$title, "\n")
@@ -79,7 +79,7 @@ DELETE_FILE <- function(filename, id, token, instance, language = "en"){
   link      = unlist(lapply(deposition$files, function(x) x$links$self))
   for(i in which(filenames == filename)){
 
-    cat("\n", MSSG(language)$deleted_file,
+    cat("      ", MSSG(language)$deleted_file,
         paste0("'",filename,"'"),
         MSSG(language)$from,
         deposition$title, "\n")
